@@ -65,8 +65,6 @@ const MyTable = () => {
   useEffect(() => {
     setData([]);
     setPageNumber(1);
-    // let ab = parseInt(searchBar);
-    // console.log(typeof ab);
   }, [searchBar]);
 
   return (

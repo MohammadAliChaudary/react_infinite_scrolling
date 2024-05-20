@@ -1,0 +1,52 @@
+CREATE TABLE `customers` (
+  `customer_id` int(11) NOT NULL,
+  `customer_first_name` varchar(200) NOT NULL,
+  `customer_last_name` varchar(200) NOT NULL,
+  `customer_email` varchar(300) NOT NULL,
+  `customer_gender` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Adding data in the database
+
+
+INSERT INTO `customers` (`customer_id`, `customer_first_name`, `customer_last_name`, `customer_email`, `customer_gender`) VALUES
+(1, 'Mathilda', 'Garnam', 'mgarnam0@rediff.com', 'Female'),
+(2, 'Tymon', 'McEniry', 'tmceniry1@free.fr', 'Male'),
+(3, 'Margarette', 'Danilyak', 'mdanilyak2@joomla.org', 'Female'),
+(4, 'Ermanno', 'Huebner', 'ehuebner3@wikipedia.org', 'Male'),
+(5, 'Agnes', 'Barabich', 'abarabich4@delicious.com', 'Female'),
+(6, 'Hamil', 'De Zuani', 'hdezuani5@hostgator.com', 'Male'),
+(7, 'Corrie', 'Althorpe', 'calthorpe6@themeforest.net', 'Female'),
+(8, 'Ricard', 'Dumelow', 'rdumelow7@china.com.cn', 'Male'),
+(9, 'Darcy', 'Crayton', 'dcrayton8@furl.net', 'Male'),
+(10, 'Kayle', 'Stonier', 'kstonier9@thetimes.co.uk', 'Female'),
+(11, 'Julissa', 'Bogeys', 'jbogeysa@w3.org', 'Female'),
+(12, 'Saul', 'Hyam', 'shyamb@senate.gov', 'Male'),
+(13, 'Saleem', 'Pettengell', 'spettengellc@si.edu', 'Male'),
+(14, 'Ives', 'Osmon', 'iosmond@forbes.com', 'Male'),
+(15, 'Wendie', 'Acton', 'wactone@army.mil', 'Female'),
+(16, 'Ches', 'Redd', 'creddf@un.org', 'Male'),
+(17, 'Sarine', 'Cossum', 'scossumg@hubpages.com', 'Female'),
+(18, 'Farly', 'Arsmith', 'farsmithh@linkedin.com', 'Male'),
+(19, 'Althea', 'Tavernor', 'atavernori@printfriendly.com', 'Female'),
+(20, 'Gayla', 'Billes', 'gbillesj@miitbeian.gov.cn', 'Female'),
+(21, 'Teodoor', 'Shreenan', 'tshreenank@hp.com', 'Male'),
+(22, 'Rich', 'Frusher', 'rfrusherl@cbc.ca', 'Male'),
+(23, 'Lissie', 'Glazier', 'lglazierm@elpais.com', 'Female'),
+(24, 'Glyn', 'Dealey', 'gdealeyn@unesco.org', 'Male'),
+(25, 'Kathy', 'Swansborough', 'kswansborougho@amazon.de', 'Female'),
+(26, 'Dudley', 'Hopkyns', 'dhopkynsp@mozilla.com', 'Male'),
+(27, 'Byran', 'Ealles', 'beallesq@engadget.com', 'Male'),
+(28, 'Kenon', 'MacGray', 'kmacgrayr@stumbleupon.com', 'Male'),
+(29, 'Sibilla', 'Norres', 'snorress@smugmug.com', 'Female'),
+(30, 'Melita', 'Redman', 'mredmant@a8.net', 'Female'),
+(31, 'Ki', 'Brydson', 'kbrydsonu@google.ca', 'Female'),
+(32, 'Bernardine', 'Follis', 'bfollisv@unc.edu', 'Female'),
+(33, 'Farleigh', 'Sudy', 'fsudyw@unc.edu', 'Male'),
+(34, 'Belle', 'Dearness', 'bdearnessx@google.co.uk', 'Female'),
+(35, 'Onfre', 'Kee', 'okeey@archive.org', 'Male')
+
+-- creating index for database
+
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`customer_id`)
