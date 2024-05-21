@@ -10,23 +10,28 @@ const MyTable = () => {
   const observer = useRef();
   const [loading, setLoading] = useState(false);
   const [searchBar, setSearchBar] = useState("");
+
   const lastTableRow = useCallback((node) => {
     if (loading) return;
 
     if (observer.current) observer.current.disconnect();
 
     observer.current = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && pageNumber < totalPageNumber) {
+      if (
+        entries[0].isIntersecting &&
+        pageNumber < totalPageNumber &&
+        searchBar === ""
+      ) {
         setPageNumber((prePageNumber) => prePageNumber + 1);
       }
     });
 
     if (node) observer.current.observe(node);
-
-    console.log(node);
   });
 
   useEffect(() => {
+    let delayDebounceFn;
+
     async function fetchData() {
       try {
         setLoading(true);
@@ -36,6 +41,7 @@ const MyTable = () => {
         setTotalPageNumber(res.data.totalPageNumber);
 
         if (pageNumber === 1) {
+          // console.log(res.data.data);
           setData(res.data.data);
         } else {
           setData((prev) => {
@@ -55,17 +61,28 @@ const MyTable = () => {
       }
     }
 
-    fetchData();
-  }, [pageNumber, searchBar]);
+    if (searchBar !== "") {
+      delayDebounceFn = setTimeout(() => {
+        fetchData();
+      }, 500);
+    } else {
+      fetchData();
+    }
 
-  useEffect(() => {
-    console.log("How many times component is re rendering");
-  });
+    return () => {
+      clearTimeout(delayDebounceFn);
+    };
+  }, [pageNumber, searchBar]);
 
   useEffect(() => {
     setData([]);
     setPageNumber(1);
   }, [searchBar]);
+
+  // useEffect(() => {
+  //   console.log(pageNumber);
+  //   console.log(data);
+  // });
 
   return (
     <div className="row d-flex justify-content-center align-items-center">
